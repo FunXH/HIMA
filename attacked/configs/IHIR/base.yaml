@@ -1,0 +1,28 @@
+model:
+  arch: IHIR
+  model_type: base
+  clip_path: ./ViT-B-32.pt
+  dropout: 0.3
+  hash_func: softmax
+  merge_func: mean
+  setDim: 8
+  cls_alpha: 0.7
+
+  distance:
+    mode: chamfer
+
+  chamfer:
+    margin: 0.5
+    semi_hard_triplet: false
+    max_violation: true
+    mmd_alpha: 0.01
+    unif_alpha: 0.01
+    mmd_gamma: 0.5
+    token_triplet_margin: 0.2
+
+  hash_pars:
+    triplet_alpha: 1
+    infonce_alpha: 0
+    quan_alpha: 0.001
+    hash_triplet_alpha: 0.5
+    triplet_margin: 0.3
